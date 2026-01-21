@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "mobile-vh-playground",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxtjs-mobile-vh": "latest",
+    "nuxt": "^4.2.2"
+  }
+}

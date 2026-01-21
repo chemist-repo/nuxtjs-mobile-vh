@@ -1,8 +1,16 @@
 {
   "name": "nuxtjs-mobile-vh",
   "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "description": "NuxtJS Mobile VH module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chemist-repo/nuxtjs-mobile-vh.git"
+  },
+  "author": {
+    "name": "Dmitrii Lartsev <https://github.com/chemist-repo/>",
+    "url": "https://github.com/chemist-repo"
+  },
+  "homepage": "https://github.com/chemist-repo/nuxtjs-mobile-vh",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -25,6 +33,9 @@
   "workspaces": [
     "playground"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "prepack": "nuxt-module-build build",
     "dev": "npm run dev:prepare && nuxt dev playground",

@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 
 // Mock defineNuxtPlugin
 vi.mock('#app', () => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   defineNuxtPlugin: (plugin: any) => plugin,
 }))
 
@@ -44,7 +45,9 @@ const pluginModule = await import('../src/runtime/plugin')
 const plugin = pluginModule.default
 
 describe('mobile-vh plugin', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let nuxtApp: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let mockContainer: any
 
   beforeEach(() => {
@@ -104,7 +107,7 @@ describe('mobile-vh plugin', () => {
 
       expect(mockDocument.documentElement.style.setProperty).toHaveBeenCalledWith(
         '--vh',
-        '8px'
+        '8px',
       )
     })
 
@@ -117,7 +120,7 @@ describe('mobile-vh plugin', () => {
 
       expect(mockDocument.documentElement.style.setProperty).toHaveBeenCalledWith(
         '--vh',
-        '10px' // 1000 * 0.01
+        '10px', // 1000 * 0.01
       )
     })
 
@@ -138,7 +141,7 @@ describe('mobile-vh plugin', () => {
 
       expect(mockWindow.addEventListener).toHaveBeenCalledWith(
         'resize',
-        expect.any(Function)
+        expect.any(Function),
       )
     })
 
@@ -159,7 +162,7 @@ describe('mobile-vh plugin', () => {
 
       const onUnmountMock = nuxtApp.vueApp.onUnmount as ReturnType<typeof vi.fn>
       const addEventListenerMock = mockWindow.addEventListener as ReturnType<typeof vi.fn>
-      
+
       if (!onUnmountMock.mock.calls[0] || !addEventListenerMock.mock.calls[0]) {
         throw new Error('Mock calls are undefined')
       }
@@ -214,7 +217,7 @@ describe('mobile-vh plugin', () => {
       expect(mockDocument.documentElement.style.setProperty).toHaveBeenCalledTimes(2)
       expect(mockDocument.documentElement.style.setProperty).toHaveBeenLastCalledWith(
         '--vh',
-        '10px' // 1000 * 0.01
+        '10px', // 1000 * 0.01
       )
     })
 
@@ -255,7 +258,7 @@ describe('mobile-vh plugin', () => {
       expect(mockDocument.documentElement.style.setProperty).toHaveBeenCalledTimes(2)
       expect(mockDocument.documentElement.style.setProperty).toHaveBeenLastCalledWith(
         '--vh',
-        '11px' // 1100 * 0.01
+        '11px', // 1100 * 0.01
       )
     })
 
@@ -281,7 +284,7 @@ describe('mobile-vh plugin', () => {
 
       expect(mockDocument.documentElement.style.setProperty).toHaveBeenLastCalledWith(
         '--vh',
-        '12px' // 1200 * 0.01
+        '12px', // 1200 * 0.01
       )
     })
   })
